@@ -1,3 +1,9 @@
+## v0.1.0 -- prerelease
+
+* refactored ssh connection to use Net::SSH
+* refactored Configuration 
+* refactored module/class layout
+
 ## v0.0.2 -- prerelease
 * added support for grouping of configurations in config file
 

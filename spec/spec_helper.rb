@@ -5,7 +5,7 @@ SimpleCov.start do
   add_filter "/doc/"
 end
 
-require './lib/remote_runner'
+require './lib/remote'
 require 'stringio'
 
 def capture(*streams)
@@ -17,7 +17,6 @@ def capture(*streams)
   ensure
     streams.each { |stream| eval("$#{stream} = #{stream.upcase}") }
   end
-  #puts result.string
   result.string
 end
 

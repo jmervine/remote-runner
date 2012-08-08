@@ -15,9 +15,11 @@
 default:
   hosts:
     - localhost
-  command: hostname
+  commands: 
+    - hostname
 rubyops:
   hosts:
     - www.rubyops.net
-  command: hostname
+  commands: 
+    - hostname
 

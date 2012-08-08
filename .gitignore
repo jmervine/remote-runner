@@ -3,3 +3,5 @@ vendor/bundle
 .*sw*
 *.gem
 .yardoc
+.rvmrc
+

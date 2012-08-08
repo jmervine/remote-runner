@@ -2,11 +2,12 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
  
-require 'remote_runner'
+require 'remote'
+require 'remote/version'
  
 Gem::Specification.new do |s|
-  s.name        = "remote_runner"
-  s.version     = RemoteRunner::VERSION
+  s.name        = "remote-runner"
+  s.version     = Remote::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Joshua Mervine"]
   s.email       = ["joshua@mervine.net"]
