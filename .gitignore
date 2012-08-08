@@ -1,0 +1,5 @@
+.bundle
+vendor/bundle
+.*sw*
+*.gem
+.yardoc

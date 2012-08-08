@@ -1,0 +1,12 @@
+# this file contains all valid options
+---
+max_threads: 10
+dry_run: true
+username: jmervine
+hosts:
+  - localhost
+command: hostname
+ssh: "/usr/bin/ssh"
+ssh_opts: "-i ~/.ssh/id_rsa"
+env: "FOO=bar"
+
