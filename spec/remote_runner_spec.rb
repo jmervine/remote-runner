@@ -108,7 +108,7 @@ describe RemoteRunner, "misc" do
   describe :load_config do
     before(:all) do
       @rr = RemoteRunner.new
-      @conf = YAML.load_file("./spec/dummy_config.yml")
+      @conf = YAML.load_file("./spec/dummy_config.yml")["default"]
     end
     it 'should load yaml configuration' do
       expect { @rr.load_config("./spec/dummy_config.yml") }.to_not raise_error

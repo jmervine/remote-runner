@@ -1,4 +1,3 @@
-require 'nventory'
 require 'open3'
 require 'yaml'
 
@@ -6,13 +5,17 @@ require 'yaml'
 class RemoteRunner 
 
   # gem version
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
 
   # @return [Fixnum] max threads to be run when running threaded
   attr_accessor :max_threads
 
   # @return [Boolean] threaded?
   attr_accessor :threaded
+
+  # @return [Boolean] file configuration group
+  # * defaults to "default"
+  attr_accessor :group
 
   # @return [Boolean] did it wait when running threaded
   # * this is mostly for testing
@@ -28,6 +31,7 @@ class RemoteRunner
     @waited         = false
     @max_threads    = 5
     @threaded       = false
+    @group          = "default"
     @configuration  ||= Configuration.new
     opt.each do |key,val|
       manual_config key, val
@@ -43,7 +47,7 @@ class RemoteRunner
   # load configs from a [YAML] file
   # @param file [String] file path
   def load_config file
-    YAML.load_file(file).each do |key,val|
+    YAML.load_file(file)[self.group].each do |key,val|
       manual_config key, val
     end
   end
