@@ -1,6 +1,7 @@
 # this file contains all valid options
 ---
-#max_threads: 10
+#max_threads: 5
+#threaded: true
 #dry_run: true
 #username: jmervine
 hosts:
