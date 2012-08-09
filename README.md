@@ -1,7 +1,7 @@
 # Remote::Runner
 
-* [doc](http://rubyops.github.com/remote_runner/doc/)
-* [cov](http://rubyops.github.com/remote_runner/coverage/)
+* [doc](http://rubyops.github.com/remote-runner/doc/)
+* [cov](http://rubyops.github.com/remote-runner/coverage/)
 
 # Installation -- Prerelease
 
@@ -15,14 +15,15 @@ Then bundle install it:
 
         $ bundle install
 
-> If you have issues with Net::SSH errors, do the following:
-> 1. remove remote-runner from your Gemfile
-> 1. add "gem 'net-ssh'
-> 1. run "bundle install"
-> 1. add remote-runner back to your Gemfile
-> 1. run "bundle update"
->
-> I haven't figured out why this is happening from git install, but it does happen.
+If you have issues with Net::SSH errors, do the following:
+
+1. remove remote-runner from your Gemfile
+1. add "gem 'net-ssh'
+1. run "bundle install"
+1. add remote-runner back to your Gemfile
+1. run "bundle update"
+
+I haven't figured out why this is happening from git install, but it does happen.
 
 # Usage
 

@@ -64,8 +64,8 @@
     <div id="content"><div id='filecontents'><h1>Remote::Runner</h1>
 
 <ul>
-<li><a href="http://rubyops.github.com/remote_runner/doc/">doc</a></li>
-<li><a href="http://rubyops.github.com/remote_runner/coverage/">cov</a></li>
+<li><a href="http://rubyops.github.com/remote-runner/doc/">doc</a></li>
+<li><a href="http://rubyops.github.com/remote-runner/coverage/">cov</a></li>
 </ul>
 
 <h1>Installation -- Prerelease</h1>
@@ -82,16 +82,17 @@
 <pre class="code ruby"><code>    $ bundle install
 </code></pre>
 
-<blockquote>
-<p>If you have issues with Net::SSH errors, do the following:
-1. remove remote-runner from your Gemfile
-1. add &quot;gem &#39;net-ssh&#39;
-1. run &quot;bundle install&quot;
-1. add remote-runner back to your Gemfile
-1. run &quot;bundle update&quot;</p>
+<p>If you have issues with Net::SSH errors, do the following:</p>
+
+<ol>
+<li>remove remote-runner from your Gemfile</li>
+<li>add &quot;gem &#39;net-ssh&#39;</li>
+<li>run &quot;bundle install&quot;</li>
+<li>add remote-runner back to your Gemfile</li>
+<li>run &quot;bundle update&quot;</li>
+</ol>
 
 <p>I haven&#39;t figured out why this is happening from git install, but it does happen.</p>
-</blockquote>
 
 <h1>Usage</h1>
 
@@ -237,7 +238,7 @@ $ remoterun -r localhost -c &quot;ps aux | grep unicorn&quot;,&quot;ps aux | gre
 </div></div>
 
     <div id="footer">
-  Generated on Wed Aug  8 22:17:00 2012 by
+  Generated on Wed Aug  8 22:19:26 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.9.2).
 </div>
