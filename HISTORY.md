@@ -1,3 +1,13 @@
+## v0.1.5 -- prerelease
+
+* fixed bug with quiet mode
+
+## v0.1.4 -- prerelease
+
+* added support for quiet mode
+* added support for verbose mode
+* added tests for ./bin/remoterun
+
 ## v0.1.3 -- prerelease
 
 * added RR_FILE for setting config file via environment
