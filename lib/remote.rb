@@ -16,6 +16,7 @@ module Remote
   end
 
   def self.reset
+    @file = nil
     self.configuration = Configuration.new
   end
 

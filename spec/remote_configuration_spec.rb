@@ -9,6 +9,9 @@ describe Remote::Configuration, "#new" do
     hosts:        [ "localhost" ],
     ssh_opts:     {},
     threaded:     false,
+    verbose:      false,
+    quiet:        false,
+    threaded:     false,
     max_threads:  5,
     group:        "default"
   }.each do |meth,value|
@@ -46,6 +49,8 @@ describe Remote::Configuration, "attributes" do
     username:     "foobar",
     ssh_opts:     { :password => "foobar" },
     threaded:     true,
+    verbose:      true,
+    quiet:        true,
     max_threads:  7,
     group:        "foobar",
   }.each do |meth,value|

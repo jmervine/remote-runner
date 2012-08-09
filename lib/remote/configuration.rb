@@ -2,7 +2,7 @@ module Remote
   # configuration for {Remote::Runner}
   class Configuration
 
-    attr_writer :hosts, :username, :commands, :ssh_opts, :dry_run, :threaded, :max_threads, :group
+    attr_writer :hosts, :username, :commands, :ssh_opts, :dry_run, :threaded, :max_threads, :group, :verbose, :quiet
 
     def initialize
       @dry_run = false
@@ -58,5 +58,16 @@ module Remote
     def threaded
       @threaded ||= false
     end
+
+    # @return [Boolean] include commands in output
+    def verbose
+      @verbose ||= false
+    end
+
+    # @return [Boolean] hide hosts and stream from output
+    def quiet
+      @quiet ||= false
+    end
+
   end
 end

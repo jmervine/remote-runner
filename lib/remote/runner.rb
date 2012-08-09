@@ -107,7 +107,10 @@ module Remote
     # @param host [String]
     def dry_run host
       @configuration.commands.each do |command|
-        $stdout << "[#{host}::echo] #{command}\n"
+        if @configuration.verbose
+          stdputs host, :command, command
+        end
+        stdputs host, :dry, command
       end
     end
 
@@ -124,7 +127,9 @@ module Remote
             stdputs host, :stderr, "FAILED: couldn't execute command (#{command})"
             return 42
           end
-          stdputs host, :command, command
+          if @configuration.verbose
+            stdputs host, :command, command
+          end
           channel.on_data do |ch,data|
             stdputs host, :stdout, data
           end
@@ -147,13 +152,27 @@ module Remote
 
     def stdputs host, stream, data
       unless data.strip.empty?
-        if stream == :stderr or stream == :stdout
-          label  = stream
+        string = data.strip
+
+        case stream
+        when :stdout
+          stream_s = "std"
+        when :stderr 
+          stream_s = "err"
+        when :command 
+          stream_s = "cmd"
+          stream = :stdout
         else
-          label  = stream
+          stream_s = stream.to_s[0..2]
           stream = :stdout
         end
-        eval "$#{stream} << '[%s:%7s] %s\n' % [host,label,data.strip]"
+
+        unless @configuration.quiet
+          string = "[ #{stream_s}::#{host} ] #{string}\n"
+        end
+
+        eval "$#{stream} << '#{string}'"
+        #eval "$#{stream} << '[%s:%7s] %s\n' % [host,label,data.strip]"
       end
     end
   end

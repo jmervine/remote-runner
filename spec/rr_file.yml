@@ -1,0 +1,7 @@
+---
+default:
+  hosts:
+    - rr_file.localhost
+  commands: 
+    - hostname
+

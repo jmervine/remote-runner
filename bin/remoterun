@@ -36,6 +36,16 @@ op = OptionParser.new do |opts|
   opts.on("-m", "--max-threads [thead count]", Integer, "max threads (default: 5)") do 
     options[:max_threads] = true
   end
+  opts.on("-v", "--verbose", "Include commands being run.") do 
+    options[:verbose] = true
+  end
+  opts.on("-q", "--quiet", "Do not include host and output stream.") do
+    options[:quiet] = true
+  end
+
+  opts.on("-p", "--pretend", "Pretend to run ssh commands.") do
+    options[:dry_run] = true
+  end
 
   opts.on("-h", "--help", "Show this message") do
     puts op
@@ -51,9 +61,13 @@ end
 op.parse!(ARGV)
 options[:commands].push( ARGV.join(" ") )
 
-if options[:commands].first.empty? and options[:commands].count == 1
+if options[:commands].first.empty? and options[:commands].count == 1 and !options[:file]
   puts op
   exit
+end
+
+if options[:commands].first.empty?
+  options.delete(:commands)
 end
 
 if options[:ssh_opts].empty?
