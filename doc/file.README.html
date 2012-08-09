@@ -68,6 +68,31 @@
 <li><a href="http://rubyops.github.com/remote_runner/coverage/">cov</a></li>
 </ul>
 
+<h1>Installation -- Prerelease</h1>
+
+<p>Via bundler:</p>
+
+<pre class="code ruby"><code>    <span class='comment'>#file:Gemfile
+</span>    <span class='id identifier rubyid_source'>source</span> <span class='symbol'>:rubygems</span>
+    <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>remote-runner</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:git</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git://github.com/rubyops/remote-runner.git</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>Then bundle install it:</p>
+
+<pre class="code ruby"><code>    $ bundle install
+</code></pre>
+
+<blockquote>
+<p>If you have issues with Net::SSH errors, do the following:
+1. remove remote-runner from your Gemfile
+1. add &quot;gem &#39;net-ssh&#39;
+1. run &quot;bundle install&quot;
+1. add remote-runner back to your Gemfile
+1. run &quot;bundle update&quot;</p>
+
+<p>I haven&#39;t figured out why this is happening from git install, but it does happen.</p>
+</blockquote>
+
 <h1>Usage</h1>
 
 <p>Documentation in progress.</p>
@@ -212,9 +237,9 @@ $ remoterun -r localhost -c &quot;ps aux | grep unicorn&quot;,&quot;ps aux | gre
 </div></div>
 
     <div id="footer">
-  Generated on Wed Aug  8 22:06:11 2012 by
+  Generated on Wed Aug  8 22:17:00 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.2.1 (ruby-1.9.3).
+  0.8.2.1 (ruby-1.9.2).
 </div>
 
   </body>
