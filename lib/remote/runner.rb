@@ -13,6 +13,8 @@ module Remote
       @waited = false
 
       file = opt.delete(:file)||nil
+      Remote.configure file unless file.nil?
+
       @configuration  ||= Remote.configuration
 
       opt.each do |key,val|
