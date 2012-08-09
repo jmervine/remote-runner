@@ -156,7 +156,7 @@ module Remote
 
         case stream
         when :stdout
-          stream_s = "std"
+          stream_s = "out"
         when :stderr 
           stream_s = "err"
         when :command 
@@ -168,10 +168,10 @@ module Remote
         end
 
         unless @configuration.quiet
-          string = "[ #{stream_s}::#{host} ] #{string}\n"
+          string = "[ #{stream_s}::#{host} ] #{string}"
         end
 
-        eval "$#{stream} << '#{string}'"
+        eval "$#{stream} << '#{string}\n'"
         #eval "$#{stream} << '[%s:%7s] %s\n' % [host,label,data.strip]"
       end
     end

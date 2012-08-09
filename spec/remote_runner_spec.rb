@@ -150,7 +150,7 @@ describe Remote::Runner, "misc" do
       out = capture(:stdout, :stderr) do
         @rr.run
       end
-      out.should_not match /\[ std::/
+      out.should_not match /\[ out::/
     end
     it "should include stream and host prefix when not quiet" do
       Remote.configure do |c|
@@ -161,7 +161,7 @@ describe Remote::Runner, "misc" do
       out = capture(:stdout, :stderr) do
         @rr.run
       end
-      out.should match /\[ std::/
+      out.should match /\[ out::/
     end
   end
 
