@@ -382,7 +382,11 @@ see Configuration#configure
 28
 29
 30
-31</pre>
+31
+32
+33
+34
+35</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 12</span>
@@ -399,6 +403,10 @@ see Configuration#configure
 
   <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:file</span><span class='rparen'>)</span><span class='op'>||</span><span class='kw'>nil</span>
   <span class='const'>Remote</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='id identifier rubyid_file'>file</span> <span class='kw'>unless</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>and</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RR_FILE</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='kw'>and</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RR_FILE</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='const'>Remote</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RR_FILE</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
 
   <span class='ivar'>@configuration</span>  <span class='op'>||=</span> <span class='const'>Remote</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span>
 
@@ -595,14 +603,14 @@ echo host and command
       <pre class="lines">
 
 
-104
-105
-106
-107
-108</pre>
+108
+109
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dry_run'>dry_run</span> <span class='id identifier rubyid_host'>host</span>
   <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_commands'>commands</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_command'>command</span><span class='op'>|</span>
@@ -641,10 +649,6 @@ run command
       <pre class="lines">
 
 
-34
-35
-36
-37
 38
 39
 40
@@ -665,10 +669,14 @@ run command
 55
 56
 57
-58</pre>
+58
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span> 
   <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -742,10 +750,6 @@ run a command on a remote host
       <pre class="lines">
 
 
-64
-65
-66
-67
 68
 69
 70
@@ -766,10 +770,14 @@ run a command on a remote host
 85
 86
 87
-88</pre>
+88
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_host'>run_host</span> <span class='id identifier rubyid_host'>host</span>
   <span class='id identifier rubyid_status'>status</span>  <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -843,18 +851,18 @@ call <span class='object_link'><a href="#run_host-instance_method" title="Remote
       <pre class="lines">
 
 
-92
-93
-94
-95
 96
 97
 98
 99
-100</pre>
+100
+101
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_thread_host'>thread_host</span> <span class='id identifier rubyid_host'>host</span>
   <span class='kw'>while</span> <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='op'>&gt;=</span> <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_max_threads'>max_threads</span> <span class='kw'>do</span>
@@ -875,7 +883,7 @@ call <span class='object_link'><a href="#run_host-instance_method" title="Remote
 </div>
 
     <div id="footer">
-  Generated on Wed Aug  8 21:49:41 2012 by
+  Generated on Wed Aug  8 21:57:41 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.9.2).
 </div>

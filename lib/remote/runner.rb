@@ -22,6 +22,10 @@ module Remote
       file = opt.delete(:file)||nil
       Remote.configure file unless file.nil?
 
+      if file.nil? and ENV['RR_FILE'] and File.exists?(ENV['RR_FILE'])
+        Remote.configure ENV['RR_FILE']
+      end
+
       @configuration  ||= Remote.configuration
 
       opt.each do |key,val|

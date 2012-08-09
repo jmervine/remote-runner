@@ -23,27 +23,27 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-08-08T21:49:41-07:00">2012-08-08T21:49:41-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-08-08T21:57:41-07:00">2012-08-08T21:57:41-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">95.42%</span></span>
+    (<span class="covered_percent"><span class="green">94.84%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         5.03
+         5.0
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>4</b> files in total.
-    <b>153</b> relevant lines. 
-    <span class="green"><b>146</b> lines covered</span> and
-    <span class="red"><b>7</b> lines missed </span>
+    <b>155</b> relevant lines. 
+    <span class="green"><b>147</b> lines covered</span> and
+    <span class="red"><b>8</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -81,12 +81,12 @@
       
       <tr>
         <td class="strong"><a href="#675f77e035177e6178382577fc7b53e821b644b2" class="src_link" title="lib/remote/runner.rb">lib/remote/runner.rb</a></td>
-        <td class="green strong">90.91 %</td>
-        <td>157</td>
-        <td>77</td>
-        <td>70</td>
-        <td>7</td>
-        <td>6.7</td>
+        <td class="yellow strong">89.87 %</td>
+        <td>161</td>
+        <td>79</td>
+        <td>71</td>
+        <td>8</td>
+        <td>6.6</td>
       </tr>
       
       <tr>
@@ -669,8 +669,8 @@
           <code class="ruby">    def max_threads</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="54">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="54">
+          <span class="hits">13</span>
           
           <code class="ruby">      @max_threads ||= 5</code>
         </li>
@@ -730,11 +730,11 @@
         <div class="source_table" id="675f77e035177e6178382577fc7b53e821b644b2">
   <div class="header">
     <h3>lib/remote/runner.rb</h3>
-    <h4><span class="green">90.91 %</span> covered</h4>
+    <h4><span class="yellow">89.87 %</span> covered</h4>
     <div>
-      <b>77</b> relevant lines. 
-      <span class="green"><b>70</b> lines covered</span> and
-      <span class="red"><b>7</b> lines missed.</span>
+      <b>79</b> relevant lines. 
+      <span class="green"><b>71</b> lines covered</span> and
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
   
@@ -888,31 +888,31 @@
         <li class="covered" data-hits="7" data-linenumber="25">
           <span class="hits">7</span>
           
-          <code class="ruby">      @configuration  ||= Remote.configuration</code>
+          <code class="ruby">      if file.nil? and ENV['RR_FILE'] and File.exists?(ENV['RR_FILE'])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="missed" data-hits="0" data-linenumber="26">
+          
+          
+          <code class="ruby">        Remote.configure ENV['RR_FILE']</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="27">
+        <li class="covered" data-hits="7" data-linenumber="29">
           <span class="hits">7</span>
           
-          <code class="ruby">      opt.each do |key,val|</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="28">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        @configuration.send(&quot;#{key}=&quot;.to_sym, val)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="29">
-          
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">      @configuration  ||= Remote.configuration</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
@@ -921,304 +921,304 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="covered" data-hits="7" data-linenumber="31">
+          <span class="hits">7</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      opt.each do |key,val|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="covered" data-hits="2" data-linenumber="32">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">        @configuration.send(&quot;#{key}=&quot;.to_sym, val)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">    # run command</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="34">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    def run </code>
-        </li>
-      
-        <li class="covered" data-hits="6" data-linenumber="35">
-          <span class="hits">6</span>
-          
-          <code class="ruby">      status = true</code>
-        </li>
-      
-        <li class="covered" data-hits="6" data-linenumber="36">
-          <span class="hits">6</span>
-          
-          <code class="ruby">      @configuration.hosts.each do |host|</code>
-        </li>
-      
-        <li class="covered" data-hits="12" data-linenumber="37">
-          <span class="hits">12</span>
-          
-          <code class="ruby">        if @configuration.dry_run?</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          dry_run host</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="39">
-          
-          
-          <code class="ruby">        else</code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="40">
-          <span class="hits">11</span>
-          
-          <code class="ruby">          if @configuration.threaded</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="41">
-          <span class="hits">7</span>
-          
-          <code class="ruby">            thread_host(host)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">            #unless thread_host(host)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby">              #status = false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="44">
-          
-          
-          <code class="ruby">            #end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="45">
-          
-          
-          <code class="ruby">          else</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="46">
-          <span class="hits">4</span>
-          
-          <code class="ruby">            unless run_host(host)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="47">
-          <span class="hits">1</span>
-          
-          <code class="ruby">              status = false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">            end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">          end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="51">
-          
-          
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="52">
-          <span class="hits">6</span>
+        <li class="never" data-hits="" data-linenumber="34">
           
-          <code class="ruby">      if @configuration.threaded &amp;&amp; !@configuration.dry_run?</code>
+          
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="53">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        Thread.list.each do |t|</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="54">
-          <span class="hits">7</span>
-          
-          <code class="ruby">          t.join unless Thread.current == t</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="56">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="6" data-linenumber="57">
-          <span class="hits">6</span>
-          
-          <code class="ruby">      return status</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="35">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">    # run command</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
-          <code class="ruby">    protected</code>
+          <code class="ruby">    def run </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="covered" data-hits="6" data-linenumber="39">
+          <span class="hits">6</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">      status = true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="62">
+        <li class="covered" data-hits="6" data-linenumber="40">
+          <span class="hits">6</span>
           
-          
-          <code class="ruby">    # run a command on a remote host</code>
+          <code class="ruby">      @configuration.hosts.each do |host|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="covered" data-hits="12" data-linenumber="41">
+          <span class="hits">12</span>
           
-          
-          <code class="ruby">    # @param host [String]</code>
+          <code class="ruby">        if @configuration.dry_run?</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="64">
+        <li class="covered" data-hits="1" data-linenumber="42">
           <span class="hits">1</span>
           
-          <code class="ruby">    def run_host host</code>
+          <code class="ruby">          dry_run host</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="65">
-          <span class="hits">11</span>
-          
-          <code class="ruby">      status  = []</code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="66">
-          <span class="hits">11</span>
-          
-          <code class="ruby">      ssh     = nil </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="67">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="68">
-          <span class="hits">11</span>
-          
-          <code class="ruby">      begin</code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="69">
-          <span class="hits">11</span>
-          
-          <code class="ruby">        if @configuration.ssh_opts.empty?</code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="70">
-          <span class="hits">11</span>
-          
-          <code class="ruby">          ssh = Net::SSH.start(host, @configuration.username) </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">        else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="72">
+        <li class="covered" data-hits="11" data-linenumber="44">
+          <span class="hits">11</span>
           
-          
-          <code class="ruby">          ssh = Net::SSH.start(host, @configuration.username, @configuration.ssh_opts) </code>
+          <code class="ruby">          if @configuration.threaded</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="73">
+        <li class="covered" data-hits="7" data-linenumber="45">
+          <span class="hits">7</span>
+          
+          <code class="ruby">            thread_host(host)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">            #unless thread_host(host)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby">              #status = false</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">            #end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby">          else</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="50">
+          <span class="hits">4</span>
+          
+          <code class="ruby">            unless run_host(host)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
+          
+          <code class="ruby">              status = false</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">            end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
-          
-          
-          <code class="ruby">      rescue SocketError</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="75">
-          
-          
-          <code class="ruby">        stdputs host, :stderr, &quot;host not found&quot;</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="76">
-          
-          
-          <code class="ruby">        return false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="55">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="covered" data-hits="6" data-linenumber="56">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      if @configuration.threaded &amp;&amp; !@configuration.dry_run?</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="57">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        Thread.list.each do |t|</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="58">
+          <span class="hits">5</span>
+          
+          <code class="ruby">          t.join unless Thread.current == t</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="61">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      return status</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="79">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="1" data-linenumber="64">
+          <span class="hits">1</span>
           
-          <code class="ruby">      @configuration.commands.each do |command|</code>
+          <code class="ruby">    protected</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="80">
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">    # run a command on a remote host</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">    # @param host [String]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="68">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def run_host host</code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="69">
           <span class="hits">11</span>
           
-          <code class="ruby">        status.push ssh_exec(ssh, host, command)</code>
+          <code class="ruby">      status  = []</code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="70">
+          <span class="hits">11</span>
+          
+          <code class="ruby">      ssh     = nil </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="72">
+          <span class="hits">11</span>
+          
+          <code class="ruby">      begin</code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="73">
+          <span class="hits">11</span>
+          
+          <code class="ruby">        if @configuration.ssh_opts.empty?</code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="74">
+          <span class="hits">11</span>
+          
+          <code class="ruby">          ssh = Net::SSH.start(host, @configuration.username) </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">        else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="76">
+          
+          
+          <code class="ruby">          ssh = Net::SSH.start(host, @configuration.username, @configuration.ssh_opts) </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="77">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="78">
+          
+          
+          <code class="ruby">      rescue SocketError</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="79">
+          
+          
+          <code class="ruby">        stdputs host, :stderr, &quot;host not found&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="80">
+          
+          
+          <code class="ruby">        return false</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="81">
@@ -1236,13 +1236,13 @@
         <li class="covered" data-hits="11" data-linenumber="83">
           <span class="hits">11</span>
           
-          <code class="ruby">      status.each do |stat|</code>
+          <code class="ruby">      @configuration.commands.each do |command|</code>
         </li>
       
         <li class="covered" data-hits="11" data-linenumber="84">
           <span class="hits">11</span>
           
-          <code class="ruby">        return false unless stat == 0</code>
+          <code class="ruby">        status.push ssh_exec(ssh, host, command)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="85">
@@ -1251,244 +1251,244 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="86">
-          <span class="hits">10</span>
-          
-          <code class="ruby">      return true</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="87">
+        <li class="never" data-hits="" data-linenumber="86">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="88">
+        <li class="covered" data-hits="11" data-linenumber="87">
+          <span class="hits">11</span>
           
+          <code class="ruby">      status.each do |stat|</code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="88">
+          <span class="hits">11</span>
           
-          <code class="ruby">    end</code>
+          <code class="ruby">        return false unless stat == 0</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="89">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="90">
+        <li class="covered" data-hits="10" data-linenumber="90">
+          <span class="hits">10</span>
           
-          
-          <code class="ruby">    # call {#run_host} using [Thread]</code>
+          <code class="ruby">      return true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="91">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="92">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="93">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby">    # call {#run_host} using [Thread]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
           <code class="ruby">    # @param host [String]</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="92">
+        <li class="covered" data-hits="1" data-linenumber="96">
           <span class="hits">1</span>
           
           <code class="ruby">    def thread_host host</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="93">
+        <li class="covered" data-hits="7" data-linenumber="97">
           <span class="hits">7</span>
           
           <code class="ruby">      while Thread.list.count &gt;= @configuration.max_threads do</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="94">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="98">
+          <span class="hits">4</span>
           
           <code class="ruby">        @waited = true # for specs</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="95">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="99">
+          <span class="hits">4</span>
           
           <code class="ruby">        sleep 0.1</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="96">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="97">
-          <span class="hits">7</span>
-          
-          <code class="ruby">      Thread.new do</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="98">
-          <span class="hits">7</span>
-          
-          <code class="ruby">        run_host host</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="99">
-          
-          
-          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="100">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="101">
+        <li class="covered" data-hits="7" data-linenumber="101">
+          <span class="hits">7</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">      Thread.new do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="102">
+        <li class="covered" data-hits="7" data-linenumber="102">
+          <span class="hits">7</span>
           
-          
-          <code class="ruby">    # echo host and command</code>
+          <code class="ruby">        run_host host</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="103">
           
           
-          <code class="ruby">    # @param host [String]</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="104">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    def dry_run host</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="105">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      @configuration.commands.each do |command|</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="106">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        $stdout &lt;&lt; &quot;[#{host}::echo] #{command}\n&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="107">
-          
-          
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="108">
+        <li class="never" data-hits="" data-linenumber="104">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="109">
+        <li class="never" data-hits="" data-linenumber="105">
           
           
           <code class="ruby"></code>
         </li>
       
+        <li class="never" data-hits="" data-linenumber="106">
+          
+          
+          <code class="ruby">    # echo host and command</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="107">
+          
+          
+          <code class="ruby">    # @param host [String]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="108">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def dry_run host</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="109">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @configuration.commands.each do |command|</code>
+        </li>
+      
         <li class="covered" data-hits="1" data-linenumber="110">
           <span class="hits">1</span>
           
-          <code class="ruby">    private</code>
+          <code class="ruby">        $stdout &lt;&lt; &quot;[#{host}::echo] #{command}\n&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="111">
           
           
-          <code class="ruby">   </code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="112">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="112">
           
-          <code class="ruby">    def ssh_exec(ssh, host, command)</code>
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="113">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="114">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="115">
+          
+          
+          <code class="ruby">   </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="116">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def ssh_exec(ssh, host, command)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="117">
+          
+          
           <code class="ruby">      #stdout_data = &quot;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="114">
+        <li class="never" data-hits="" data-linenumber="118">
           
           
           <code class="ruby">      #stderr_data = &quot;&quot;</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="115">
+        <li class="covered" data-hits="11" data-linenumber="119">
           <span class="hits">11</span>
           
           <code class="ruby">      exit_code = nil</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="116">
+        <li class="covered" data-hits="11" data-linenumber="120">
           <span class="hits">11</span>
           
           <code class="ruby">      exit_signal = nil</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="117">
+        <li class="covered" data-hits="11" data-linenumber="121">
           <span class="hits">11</span>
           
           <code class="ruby">      ssh.open_channel do |channel|</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="118">
+        <li class="covered" data-hits="11" data-linenumber="122">
           <span class="hits">11</span>
           
           <code class="ruby">        channel.exec(command) do |ch, success|</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="119">
+        <li class="covered" data-hits="11" data-linenumber="123">
           <span class="hits">11</span>
           
           <code class="ruby">          unless success</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="120">
+        <li class="missed" data-hits="0" data-linenumber="124">
           
           
           <code class="ruby">            stdputs host, :stderr, &quot;FAILED: couldn't execute command (#{command})&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="121">
+        <li class="missed" data-hits="0" data-linenumber="125">
           
           
           <code class="ruby">            return 42</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="122">
-          
-          
-          <code class="ruby">          end</code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="123">
-          <span class="hits">11</span>
-          
-          <code class="ruby">          stdputs host, :command, command</code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="124">
-          <span class="hits">11</span>
-          
-          <code class="ruby">          channel.on_data do |ch,data|</code>
-        </li>
-      
-        <li class="covered" data-hits="10" data-linenumber="125">
-          <span class="hits">10</span>
-          
-          <code class="ruby">            stdputs host, :stdout, data</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="126">
@@ -1500,184 +1500,208 @@
         <li class="covered" data-hits="11" data-linenumber="127">
           <span class="hits">11</span>
           
-          <code class="ruby">          channel.on_extended_data do |ch,type,data|</code>
+          <code class="ruby">          stdputs host, :command, command</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="128">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="11" data-linenumber="128">
+          <span class="hits">11</span>
           
-          <code class="ruby">            stdputs host, :stderr, data</code>
+          <code class="ruby">          channel.on_data do |ch,data|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="129">
+        <li class="covered" data-hits="10" data-linenumber="129">
+          <span class="hits">10</span>
+          
+          <code class="ruby">            stdputs host, :stdout, data</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="130">
           
           
           <code class="ruby">          end</code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="130">
-          <span class="hits">11</span>
-          
-          <code class="ruby">          channel.on_request(&quot;exit-status&quot;) do |ch,data|</code>
         </li>
       
         <li class="covered" data-hits="11" data-linenumber="131">
           <span class="hits">11</span>
           
-          <code class="ruby">            exit_code = data.read_long</code>
+          <code class="ruby">          channel.on_extended_data do |ch,type,data|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="132">
+        <li class="covered" data-hits="1" data-linenumber="132">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">          end</code>
+          <code class="ruby">            stdputs host, :stderr, data</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="133">
           
           
-          <code class="ruby">        end</code>
+          <code class="ruby">          end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="134">
+        <li class="covered" data-hits="11" data-linenumber="134">
+          <span class="hits">11</span>
           
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">          channel.on_request(&quot;exit-status&quot;) do |ch,data|</code>
         </li>
       
         <li class="covered" data-hits="11" data-linenumber="135">
           <span class="hits">11</span>
           
-          <code class="ruby">      ssh.loop</code>
+          <code class="ruby">            exit_code = data.read_long</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="136">
           
           
-          <code class="ruby">      #if exit_code == 0</code>
+          <code class="ruby">          end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="137">
           
           
-          <code class="ruby">        #stdputs host, :stdout, &quot;exit success&quot;</code>
+          <code class="ruby">        end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="138">
           
           
-          <code class="ruby">      #else</code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="139">
+        <li class="covered" data-hits="11" data-linenumber="139">
+          <span class="hits">11</span>
           
-          
-          <code class="ruby">        #stdputs host, :stderr, &quot;exit failed(#{exit_code})&quot;</code>
+          <code class="ruby">      ssh.loop</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="140">
           
           
-          <code class="ruby">      #end</code>
+          <code class="ruby">      #if exit_code == 0</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="141">
-          <span class="hits">11</span>
+        <li class="never" data-hits="" data-linenumber="141">
           
-          <code class="ruby">      return exit_code</code>
+          
+          <code class="ruby">        #stdputs host, :stdout, &quot;exit success&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="142">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">      #else</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="143">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">        #stdputs host, :stderr, &quot;exit failed(#{exit_code})&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="144">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="144">
           
-          <code class="ruby">    def stdputs host, stream, data</code>
-        </li>
-      
-        <li class="covered" data-hits="22" data-linenumber="145">
-          <span class="hits">22</span>
           
-          <code class="ruby">      unless data.strip.empty?</code>
+          <code class="ruby">      #end</code>
         </li>
       
-        <li class="covered" data-hits="22" data-linenumber="146">
-          <span class="hits">22</span>
-          
-          <code class="ruby">        if stream == :stderr or stream == :stdout</code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="147">
+        <li class="covered" data-hits="11" data-linenumber="145">
           <span class="hits">11</span>
           
-          <code class="ruby">          label  = stream</code>
+          <code class="ruby">      return exit_code</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="148">
-          
-          
-          <code class="ruby">        else</code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="149">
-          <span class="hits">11</span>
-          
-          <code class="ruby">          label  = stream</code>
-        </li>
-      
-        <li class="covered" data-hits="11" data-linenumber="150">
-          <span class="hits">11</span>
-          
-          <code class="ruby">          stream = :stdout</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="151">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="covered" data-hits="22" data-linenumber="152">
-          <span class="hits">22</span>
-          
-          <code class="ruby">        eval &quot;$#{stream} &lt;&lt; '[%s:%7s] %s\n' % [host,label,data.strip]&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="153">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="154">
+        <li class="never" data-hits="" data-linenumber="146">
           
           
           <code class="ruby">    end</code>
         </li>
       
+        <li class="never" data-hits="" data-linenumber="147">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="148">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def stdputs host, stream, data</code>
+        </li>
+      
+        <li class="covered" data-hits="22" data-linenumber="149">
+          <span class="hits">22</span>
+          
+          <code class="ruby">      unless data.strip.empty?</code>
+        </li>
+      
+        <li class="covered" data-hits="22" data-linenumber="150">
+          <span class="hits">22</span>
+          
+          <code class="ruby">        if stream == :stderr or stream == :stdout</code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="151">
+          <span class="hits">11</span>
+          
+          <code class="ruby">          label  = stream</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="152">
+          
+          
+          <code class="ruby">        else</code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="153">
+          <span class="hits">11</span>
+          
+          <code class="ruby">          label  = stream</code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="154">
+          <span class="hits">11</span>
+          
+          <code class="ruby">          stream = :stdout</code>
+        </li>
+      
         <li class="never" data-hits="" data-linenumber="155">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="22" data-linenumber="156">
+          <span class="hits">22</span>
+          
+          <code class="ruby">        eval &quot;$#{stream} &lt;&lt; '[%s:%7s] %s\n' % [host,label,data.strip]&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="157">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="158">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="159">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="156">
+        <li class="never" data-hits="" data-linenumber="160">
           
           
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="157">
+        <li class="never" data-hits="" data-linenumber="161">
           
           
           <code class="ruby"></code>
