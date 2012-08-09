@@ -90,7 +90,7 @@ Remote::Runner.new( ... configuration .. ).run
 
 <h2>Remote::Configuration</h2>
 
-<p>Configuration can be set a number aof ways:</p>
+<p>Configuration can be set a number of ways:</p>
 
 <pre class="code ruby"><code>Remote.configure(&quot;./path/to/config.yml&quot;)
 
@@ -203,12 +203,18 @@ $ remoterun -f ./path/to/file.yml &quot;ps aux | grep unicorn&quot;
 
 $ remoterun -r localhost -c &quot;ps aux | grep unicorn&quot;,&quot;ps aux | grep nginx&quot; -r localhost,www.example.com -i &quot;~/.ssh/foo_rsa&quot;
 </code></pre>
+
+<h2>Environment: RR_FILE</h2>
+
+<p>In addition to passing a file via your environment using RR_FILE.</p>
+
+<p>$ export RR_FILE=/path/to/config.yml </p>
 </div></div>
 
     <div id="footer">
-  Generated on Wed Aug  8 21:57:41 2012 by
+  Generated on Wed Aug  8 22:06:11 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.2.1 (ruby-1.9.2).
+  0.8.2.1 (ruby-1.9.3).
 </div>
 
   </body>

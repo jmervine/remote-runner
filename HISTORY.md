@@ -1,3 +1,7 @@
+## v0.1.3 -- prerelease
+
+* added RR_FILE for setting config file via environment
+
 ## v0.1.2 -- prerelease
 
 * fixed a number of bugs with configuration from a file when using cli

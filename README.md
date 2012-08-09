@@ -26,7 +26,7 @@ See [Remote::Configuration](#Remote__Configuration) for configuration examples.
 
 ## Remote::Configuration
 
-Configuration can be set a number aof ways:
+Configuration can be set a number of ways:
 
     Remote.configure("./path/to/config.yml")
 
@@ -132,4 +132,8 @@ Configuration.group must always be set programmatically, as it determines which 
 
     $ remoterun -r localhost -c "ps aux | grep unicorn","ps aux | grep nginx" -r localhost,www.example.com -i "~/.ssh/foo_rsa"
 
+## Environment: RR_FILE
 
+In addition to passing a file via your environment using RR\_FILE.
+
+   $ export RR_FILE=/path/to/config.yml 
