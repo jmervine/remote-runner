@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "net-ssh"
 
-  s.executables << 'bin/remoterun'
+  s.executables << 'remoterun'
 
   s.files        = Dir.glob("lib/**/*") + Dir.glob("bin/*") + %w(README.md HISTORY.md)
   s.require_path = 'lib'
