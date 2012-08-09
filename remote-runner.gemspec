@@ -24,7 +24,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency "net-ssh"
 
-  s.files        = Dir.glob("lib/**/*") + %w(README.md HISTORY.md)
+  spec.bindir = 'bin'
+
+  s.files        = Dir.glob("lib/**/*") + Dir.glob("bin/*") + %w(README.md HISTORY.md)
   s.require_path = 'lib'
 end
 
