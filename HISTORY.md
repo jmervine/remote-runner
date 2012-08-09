@@ -1,3 +1,8 @@
+## v0.1.1 -- prerelease
+
+* added remoterun script
+* tweaked something for script usage
+
 ## v0.1.0 -- prerelease
 
 * refactored ssh connection to use Net::SSH

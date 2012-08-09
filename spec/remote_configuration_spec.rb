@@ -7,9 +7,7 @@ describe Remote::Configuration, "#new" do
   # defaults
   {
     hosts:        [ "localhost" ],
-    username:     nil,
     ssh_opts:     {},
-    env:          '',
     threaded:     false,
     max_threads:  5,
     group:        "default"
@@ -17,6 +15,10 @@ describe Remote::Configuration, "#new" do
     it "should have correct default -- #{meth}" do
       Remote::Configuration.new.send(meth).should eq value
     end
+  end
+  it "should have correct default -- username" do
+    uname = %x{whoami}.strip
+    Remote::Configuration.new.username.should eq uname
   end
   it "commands should raise error when not set" do
     expect { Remote::Configuration.new.commands }.to raise_error
@@ -43,7 +45,6 @@ describe Remote::Configuration, "attributes" do
     hosts:        [ "foobar.com" ],
     username:     "foobar",
     ssh_opts:     { :password => "foobar" },
-    env:          'FOO=bar',
     threaded:     true,
     max_threads:  7,
     group:        "foobar",

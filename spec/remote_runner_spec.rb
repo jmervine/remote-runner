@@ -109,7 +109,6 @@ describe Remote::Runner, "misc" do
         @rr.run
       end
       out.should match /command not found/
-      out.should match /exit failed/
     end
   end
 

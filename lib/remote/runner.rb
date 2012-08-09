@@ -10,15 +10,13 @@ module Remote
 
     # @param opt [Hash] see {Remote::Configuration#configure}
     def initialize opt={}
-      @waited         = false
+      @waited = false
 
-      file = opt.delete("file")||nil
+      file = opt.delete(:file)||nil
       @configuration  ||= Remote.configuration
-     
-      Remote.configure(file) do |c|
-        opt.each do |key,val|
-          eval("c.#{key}=val")
-        end
+
+      opt.each do |key,val|
+        @configuration.send("#{key}=".to_sym, val)
       end
 
     end
@@ -56,7 +54,18 @@ module Remote
     # @param host [String]
     def run_host host
       status  = []
-      ssh     = Net::SSH.start(host, @configuration.username)#, @configuration.ssh_opts) 
+      ssh     = nil 
+
+      begin
+        if @configuration.ssh_opts.empty?
+          ssh = Net::SSH.start(host, @configuration.username) 
+        else
+          ssh = Net::SSH.start(host, @configuration.username, @configuration.ssh_opts) 
+        end
+      rescue SocketError
+        stdputs host, :stderr, "host not found"
+        return false
+      end
 
       @configuration.commands.each do |command|
         status.push ssh_exec(ssh, host, command)
@@ -102,6 +111,7 @@ module Remote
             stdputs host, :stderr, "FAILED: couldn't execute command (#{command})"
             return 42
           end
+          stdputs host, :command, command
           channel.on_data do |ch,data|
             stdputs host, :stdout, data
           end
@@ -114,16 +124,24 @@ module Remote
         end
       end
       ssh.loop
-      if exit_code == 0
-        stdputs host, :stdout, "exit success"
-      else
-        stdputs host, :stderr, "exit failed(#{exit_code})"
-      end
+      #if exit_code == 0
+        #stdputs host, :stdout, "exit success"
+      #else
+        #stdputs host, :stderr, "exit failed(#{exit_code})"
+      #end
       return exit_code
     end
 
     def stdputs host, stream, data
-      eval "$#{stream} << '[%15s:%6s] %s' % [host,stream,data]"
+      unless data.strip.empty?
+        if stream == :stderr or stream == :stdout
+          label  = stream
+        else
+          label  = stream
+          stream = :stdout
+        end
+        eval "$#{stream} << '[%s:%7s] %s\n' % [host,label,data.strip]"
+      end
     end
   end
 end

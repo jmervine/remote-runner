@@ -7,9 +7,8 @@ default:
     - localhost
   commands: 
     - hostname
-  ssh_opts: 
-    forward_agent: true
-    keys: 
-      - "~/.ssh/id_rsa"
-  env: "FOO=bar"
+  #ssh_opts: 
+    #forward_agent: true
+    #keys: 
+      #- "~/.ssh/id_rsa"
 

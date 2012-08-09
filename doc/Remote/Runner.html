@@ -362,23 +362,19 @@
 19
 20
 21
-22
-23
-24</pre>
+22</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_opt'>opt</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@waited</span>         <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@waited</span> <span class='op'>=</span> <span class='kw'>false</span>
 
-  <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>file</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='op'>||</span><span class='kw'>nil</span>
+  <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:file</span><span class='rparen'>)</span><span class='op'>||</span><span class='kw'>nil</span>
   <span class='ivar'>@configuration</span>  <span class='op'>||=</span> <span class='const'>Remote</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span>
- 
-  <span class='const'>Remote</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
-    <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span><span class='id identifier rubyid_val'>val</span><span class='op'>|</span>
-      <span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>c.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span class='rbrace'>}</span><span class='tstring_content'>=val</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span><span class='id identifier rubyid_val'>val</span><span class='op'>|</span>
+    <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -563,14 +559,14 @@
       <pre class="lines">
 
 
-86
-87
-88
-89
-90</pre>
+95
+96
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dry_run'>dry_run</span> <span class='id identifier rubyid_host'>host</span>
   <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_commands'>commands</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_command'>command</span><span class='op'>|</span>
@@ -608,6 +604,8 @@
       <pre class="lines">
 
 
+25
+26
 27
 28
 29
@@ -630,12 +628,10 @@
 46
 47
 48
-49
-50
-51</pre>
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span> 
   <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -708,6 +704,8 @@
       <pre class="lines">
 
 
+55
+56
 57
 58
 59
@@ -721,15 +719,35 @@
 67
 68
 69
-70</pre>
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_host'>run_host</span> <span class='id identifier rubyid_host'>host</span>
   <span class='id identifier rubyid_status'>status</span>  <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_ssh'>ssh</span>     <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>SSH</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span><span class='comment'>#, @configuration.ssh_opts) 
-</span>
+  <span class='id identifier rubyid_ssh'>ssh</span>     <span class='op'>=</span> <span class='kw'>nil</span> 
+
+  <span class='kw'>begin</span>
+    <span class='kw'>if</span> <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_ssh_opts'>ssh_opts</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='id identifier rubyid_ssh'>ssh</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>SSH</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span> 
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_ssh'>ssh</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>SSH</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_ssh_opts'>ssh_opts</span><span class='rparen'>)</span> 
+    <span class='kw'>end</span>
+  <span class='kw'>rescue</span> <span class='const'>SocketError</span>
+    <span class='id identifier rubyid_stdputs'>stdputs</span> <span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='symbol'>:stderr</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>host not found</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+
   <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_commands'>commands</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_command'>command</span><span class='op'>|</span>
     <span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='id identifier rubyid_ssh_exec'>ssh_exec</span><span class='lparen'>(</span><span class='id identifier rubyid_ssh'>ssh</span><span class='comma'>,</span> <span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -786,18 +804,18 @@
       <pre class="lines">
 
 
-74
-75
-76
-77
-78
-79
-80
-81
-82</pre>
+83
+84
+85
+86
+87
+88
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/remote/runner.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_thread_host'>thread_host</span> <span class='id identifier rubyid_host'>host</span>
   <span class='kw'>while</span> <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='op'>&gt;=</span> <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_max_threads'>max_threads</span> <span class='kw'>do</span>
@@ -818,7 +836,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Aug  8 15:41:11 2012 by
+  Generated on Wed Aug  8 20:58:33 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.9.3).
 </div>

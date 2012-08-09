@@ -9,7 +9,10 @@ require 'remote/configuration'
 module Remote 
 
   class << self
-    attr_accessor :configuration, :runner
+    attr_writer :configuration
+    def configuration
+      @configuration ||= Configuration.new
+    end
   end
 
   def self.reset

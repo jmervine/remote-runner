@@ -1,25 +1,14 @@
-# valid options
-# groupname:
-#   hosts:
-#     - host1
-#     - host2
-#   ssh: "/path/to/ssh"
-#   ssh_opts: "--valid ssh_options"
-#   env: "SOME_ENV=variables"
-#   command: "echo 'a default command is suggested, I use hostname'"
-#   threaded: true|false
-#   max_threads: Fixnum
-#
-#
 ---
 default:
+  max_threads: 10
+  threaded: true
+  dry_run: true
+  username: jmervine
   hosts:
     - localhost
   commands: 
     - hostname
-rubyops:
-  hosts:
-    - www.rubyops.net
-  commands: 
-    - hostname
+  ssh_opts: 
+    keys: 
+      - "~/.ssh/id_rsa"
 

@@ -1,0 +1,60 @@
+#!/usr/bin/env ruby
+require File.join( File.dirname(__FILE__), '..', 'lib', 'remote' )
+require File.join( File.dirname(__FILE__), '..', 'lib', 'remote', 'version' )
+require 'optparse'
+
+options = {
+  commands: [],
+  ssh_opts: {}
+}
+op = OptionParser.new do |opts|
+
+  opts.banner = "Usage: remoterun [options]"
+  opts.separator ''
+
+  opts.on("-f", "--file [file_path]", "config file") do |o|
+    options[:file] = o
+  end
+  opts.on("-g", "--group [config_group]", "config group (default: 'default')") do |o|
+    options[:file] = o
+  end
+  opts.on("-r", "--hosts [host1, host2]", Array, "comma delimited list of remote hosts (default: 'localhost')") do |o|
+    options[:hosts] = o
+  end
+  opts.on("-c", "--commands [cmd1, cmd2]", Array, "comma delimited list of commands") do |o|
+    options[:commands] = o
+  end
+  opts.on("-u", "--username [username]", Array, "ssh username") do |o|
+    options[:username] = o
+  end
+  opts.on("-i", "--ssh-key [file_path]", Array, "ssh key path") do |o|
+    options[:ssh_opts][:keys] = o
+  end
+  opts.on("-t", "--threaded", "run hosts threaded") do 
+    options[:threaded] = true
+  end
+  opts.on("-m", "--max-threads [thead count]", Integer, "max threads (default: 5)") do 
+    options[:max_threads] = true
+  end
+
+  opts.on("-h", "--help", "Show this message") do
+    puts op
+    exit
+  end
+  opts.on("--version", "Show version") do
+    puts "remoterun #{Remote::VERSION} (Remote::Runner)"
+    exit
+  end
+  opts.separator ''
+
+end
+op.parse!(ARGV)
+options[:commands].push( ARGV.join(" ") )
+
+if options[:commands].first.empty? and options[:commands].count == 1
+  puts op
+  exit
+end
+
+Remote::Runner.new(options).run
+
