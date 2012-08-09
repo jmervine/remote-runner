@@ -261,6 +261,34 @@ Max threads.
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#quiet-instance_method" title="#quiet (instance method)">- (Boolean) <strong>quiet</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Hide hosts and stream from output.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#ssh_opts-instance_method" title="#ssh_opts (instance method)">- (Hash) <strong>ssh_opts</strong> </a>
     
 
@@ -336,6 +364,34 @@ Threaded?.
   
     <span class="summary_desc"><div class='inline'><p>
 Username or nil.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verbose-instance_method" title="#verbose (instance method)">- (Boolean) <strong>verbose</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Include commands in output.
 </p>
 </div></span>
   
@@ -769,6 +825,69 @@ max threads
 </div>
     
       
+      <span id="quiet=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="quiet-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>quiet</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Hide hosts and stream from output
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+hide hosts and stream from output
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/remote/configuration.rb', line 68</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_quiet'>quiet</span>
+  <span class='ivar'>@quiet</span> <span class='op'>||=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="ssh_opts=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="ssh_opts-instance_method">
@@ -957,6 +1076,69 @@ username or nil
 </table>
 </div>
     
+      
+      <span id="verbose=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="verbose-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>verbose</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Include commands in output
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+include commands in output
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/remote/configuration.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_verbose'>verbose</span>
+  <span class='ivar'>@verbose</span> <span class='op'>||=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
@@ -1030,7 +1212,7 @@ is it a dry run?
 </div>
 
     <div id="footer">
-  Generated on Wed Aug  8 22:19:26 2012 by
+  Generated on Thu Aug  9 16:15:04 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.9.2).
 </div>
