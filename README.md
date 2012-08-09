@@ -109,7 +109,7 @@ Configuration.group must always be set programmatically, as it determines which 
         - hostname
       ssh_opts: 
         forward_agent: true
-        keys: 
+        :keys: 
           - "~/.ssh/id_rsa"
 
 ## Command Line Examples

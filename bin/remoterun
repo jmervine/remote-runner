@@ -15,8 +15,8 @@ op = OptionParser.new do |opts|
   opts.on("-f", "--file [file_path]", "config file") do |o|
     options[:file] = o
   end
-  opts.on("-g", "--group [config_group]", "config group (default: 'default')") do |o|
-    options[:file] = o
+  opts.on("-g", "--group [config_group]", String, "config group (default: 'default')") do |o|
+    options[:group] = o
   end
   opts.on("-r", "--hosts [host1, host2]", Array, "comma delimited list of remote hosts (default: 'localhost')") do |o|
     options[:hosts] = o
@@ -54,6 +54,10 @@ options[:commands].push( ARGV.join(" ") )
 if options[:commands].first.empty? and options[:commands].count == 1
   puts op
   exit
+end
+
+if options[:ssh_opts].empty?
+  options.delete(:ssh_opts)
 end
 
 Remote::Runner.new(options).run

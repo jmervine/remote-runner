@@ -9,6 +9,6 @@ default:
   commands: 
     - hostname
   ssh_opts: 
-    keys: 
+    :keys: 
       - "~/.ssh/id_rsa"
 

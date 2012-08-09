@@ -21,9 +21,9 @@ module Remote
 
   def self.configure file=nil, &block
     self.configuration ||= Configuration.new
-    if file
-      @file ||= YAML.load_file(file)[configuration.group]
-      @file.each do |key,val|
+    if !file.nil?
+      @file ||= YAML.load_file(file)
+      @file[self.configuration.group].each do |key,val|
         self.configuration.instance_variable_set("@#{key}".to_sym, val)
       end
     end

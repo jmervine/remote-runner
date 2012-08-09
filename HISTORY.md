@@ -1,3 +1,7 @@
+## v0.1.2 -- prerelease
+
+* fixed a number of bugs with configuration from a file when using cli
+
 ## v0.1.1 -- prerelease
 
 * added remoterun script

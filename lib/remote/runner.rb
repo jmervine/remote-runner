@@ -11,6 +11,13 @@ module Remote
     # @param opt [Hash] see {Remote::Configuration#configure}
     def initialize opt={}
       @waited = false
+     
+      group = opt.delete(:group)||nil
+      unless group.nil?
+        Remote.configure do |c|
+          c.group = group
+        end
+      end
 
       file = opt.delete(:file)||nil
       Remote.configure file unless file.nil?

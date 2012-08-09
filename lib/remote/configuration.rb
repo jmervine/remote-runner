@@ -41,7 +41,7 @@ module Remote
 
     # @return [String] username or nil
     def username
-      @username||%x{whoami}.strip
+      @username||=%x{whoami}.strip
     end
 
     # @return [Hash] ssh options
