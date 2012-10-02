@@ -4,4 +4,5 @@ vendor/bundle
 *.gem
 .yardoc
 .rvmrc
-
+coverage
+doc
