@@ -1,3 +1,8 @@
+> ## Depreciation Notice
+> 
+> This repo is no longer maintained and has been archived.
+
+
 # Remote::Runner
 
 * [doc](http://rubyops.github.com/remote-runner/doc/)
